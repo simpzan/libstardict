@@ -16,6 +16,7 @@
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <assert.h>
 
 #include <zlib.h>
 
@@ -280,8 +281,8 @@ static struct dict_dz *parse_dict_dz(const char *dict_path)
 
 	if (chunk_cnt > (header_map_size-HEADER_SIZE-MAX_COMMENTS) / 2) {
 		size_t new_map_size = (size_t)chunk_cnt * 2 + HEADER_SIZE + MAX_COMMENTS;
-
-		header = mremap(header, header_map_size, new_map_size, MREMAP_MAYMOVE);
+		assert(0); // workaround compile issue on macos
+		// header = mremap(header, header_map_size, new_map_size, MREMAP_MAYMOVE);
 		if (!header) {
 			sd_err("Failed to remap dict.dz file");
 			goto err1;

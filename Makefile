@@ -39,7 +39,7 @@ LIB_FILES=$(LIB_FILE) $(SLIB_NAME) $(LIB_NAME) $(LIB_SONAME)
 -include $(BIN_DEPS)
 
 $(LIB_FILE): $(LIB_OBJS)
-	 $(CC) -fPIC --shared -Wl,-soname -Wl,$(LIB_SONAME) $^ $(LIB_LDLIBS) -o $@
+	 $(CC) -fPIC --shared $^ $(LIB_LDLIBS) -o $@
 
 $(LIB_SONAME): $(LIB_FILE)
 	[ -f $(LIB_SONAME) ] || ln -s $(LIB_FILE) $(LIB_SONAME)
