@@ -18,6 +18,15 @@ lookup() {
   LD_LIBRARY_PATH=`pwd` HOME=`pwd` ./sd-cmd $@
 }
 
+lookup.dict() {
+  rm -rf .stardict/dic/Collins_Cobuild_5.dict.dz
+  lookup apple
+}
+lookup.dz() {
+  cp stardict-Collins_Cobuild_5-2.4.2/Collins_Cobuild_5.dict.dz .stardict/dic/
+  lookup apple
+}
+
 main_() {
   if [[ -z "$@" ]]; then
     compgen -A function | grep -v "_$"
