@@ -7,3 +7,4 @@ libstardict.so.1
 libstardict.so.1.0.0
 config.mk
 .stardict/
+.vscode/
