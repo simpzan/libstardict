@@ -10,6 +10,8 @@ setup() {
   make
   mkdir -p .stardict/dic/
   cp stardict-Collins_Cobuild_5-2.4.2/* .stardict/dic/
+  gzip -d -k -f -S dz .stardict/dic/Collins_Cobuild_5.dict.dz
+  mv .stardict/dic/Collins_Cobuild_5.dict. .stardict/dic/Collins_Cobuild_5.dict
   lookup apple
 }
 lookup() {
