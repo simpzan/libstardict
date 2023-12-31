@@ -4,7 +4,7 @@ help() { echo "run, the minimalist's task runner - https://github.com/simpzan/ru
 
 teardown() {
   make clean
-  rm rm -rf .stardict
+  rm -rf .stardict
 }
 setup() {
   make
